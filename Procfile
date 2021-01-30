@@ -1,1 +1,1 @@
-web: gunicorn PortfoiloNishad.wsgi --log-file -
+web: gunicorn PortfolioNishad.wsgi --log-file -
