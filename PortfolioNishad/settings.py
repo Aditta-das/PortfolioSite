@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '%jpr0rvr%rqyook)tys*sunt-m_*lc&p$6cknc9k2wm1q=qubr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["aditta.herokuapp.com", "127.0.0.1:8000"]
 
