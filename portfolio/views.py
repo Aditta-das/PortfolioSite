@@ -11,7 +11,8 @@ class PortfolioView(View):
 	def get(self, request, *args, **kwargs):
 		portfolio = Portfolio.objects.all()
 		currenttime = int(datetime.now().strftime("%H"))
-		if currenttime > 0 or currenttime < 6:
+		print(currenttime)
+		if currenttime < 6 and currenttime > 0:
 			print("night")
 		else:
 			print("day")

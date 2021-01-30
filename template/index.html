@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
         <!-- Masthead-->
-        {% if currenttime > 0 or currenttime < 6 %}
+        {% if currenttime < 6 and currenttime > 0 %}
         <header class="masthead bg-primary text-white text-center" style="background-color: #090a0b !important;">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
