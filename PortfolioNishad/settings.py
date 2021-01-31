@@ -25,7 +25,7 @@ SECRET_KEY = '%jpr0rvr%rqyook)tys*sunt-m_*lc&p$6cknc9k2wm1q=qubr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["adittadas.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["adittadas.herokuapp.com", "127.0.0.1", "*"]
 
 
 # Application definition
@@ -81,6 +81,19 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'd4tj5sa3grb0n3',
+#         'USER': 'postgres',
+#         'PASSWORD': '1234',
+#         'HOST': 'localhost',
+#     }
+# }
+
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES["default"].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

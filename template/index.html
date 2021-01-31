@@ -77,10 +77,10 @@
                                     <div class="card" style="width: 18rem;">
                                       <img class="card-img-top" src="{{icon}}" alt="weather" style="width: 100px; margin-left: 90px;">
                                       <div class="card-body">
-                                        {% if location is None %}
-                                        <h5 class="card-title">Celcius :{{temp_cel}}</h5>
-                                        <p class="card-text">Location : {{location}}</p>
-                                        <p class="card-text">Day Type : {{day_type}}</p>
+                                        {% if location == None %}
+                                        <h5 class="card-title">Celcius : Not Found</h5>
+                                        <p class="card-text">Location : Not Found</p>
+                                        <p class="card-text">Day Type : Not Found</p>
                                         {% else %}
                                         <h5 class="card-title">Celcius : {{temp_cel}}</h5>
                                         <p class="card-text">Location : {{location}}</p>
@@ -150,7 +150,8 @@
                                                 <img class="img-fluid rounded mb-5" src="{{ port.image.url }}" alt="" />
                                                 <!-- Portfolio Modal - Text-->
                                                 <p class="mb-5">{{ port.description }}</p>
-                                                <div class="col d-flex justify-content-center">
+                                                <div class="col-md-12 col-lg-12 col-sm-12">
+                                                    <div class="col d-flex justify-content-center">
                                                     <!-- Add font awesome icons -->
                                                     <div class="site" style="margin-bottom: 13px; padding-bottom: 16px;">
 
@@ -164,6 +165,8 @@
 
                                                     </div>
                                                 </div>
+                                                </div>
+                                                
                                                 <button class="btn btn-primary" data-dismiss="modal">
                                                     <i class="fas fa-times fa-fw"></i>
                                                     Close Window

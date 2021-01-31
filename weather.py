@@ -27,4 +27,4 @@ class Scrap:
 			return temp_cel, day_type, wind_, humidity_, location, country_name, icon
 
 
-print(Scrap("dhaka").api_call())
+# print(Scrap("dhaka").api_call())

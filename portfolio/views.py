@@ -14,9 +14,13 @@ class PortfolioView(View):
 	def get(self, request, *args, **kwargs):
 		portfolio = Portfolio.objects.all()
 		prods = Contact.objects.all()
-		cv = CV.objects.get(pk=1) # CV Download Bug
+		cv = get_object_or_404(CV, pk=1) # CV Download Bug
+		print(cv.id)
 		currenttime = int(datetime.now().strftime("%H"))
-		print(currenttime)		
+		ip = IP()
+		client_ip = request.META['REMOTE_ADDR']
+		if client_ip not in str():
+			pass
 		area = (self.request.GET)
 		area = "".join([v for k, v in area.items()])
 		temp_cel = 0
