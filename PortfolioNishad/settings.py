@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '%jpr0rvr%rqyook)tys*sunt-m_*lc&p$6cknc9k2wm1q=qubr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["adittadas.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -75,13 +75,21 @@ WSGI_APPLICATION = 'PortfolioNishad.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'portfolio',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',
     }
 }
-
 
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=600)

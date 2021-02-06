@@ -10,6 +10,7 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -54,6 +55,16 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+
+/* SLider */
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  background: #f1f1f1f1;
+}
+
+
+
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
@@ -72,6 +83,7 @@ body {
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }
+
 
 hr {
   box-sizing: content-box;
@@ -9779,11 +9791,11 @@ a.text-primary:hover, a.text-primary:focus {
 }
 
 .text-secondary {
-  color: #2c3e50 !important;
+  color: #2c3e50 ;
 }
 
 a.text-secondary:hover, a.text-secondary:focus {
-  color: #11181f !important;
+  color: #f8e3a1 !important;
 }
 
 .text-success {

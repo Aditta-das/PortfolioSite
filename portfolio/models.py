@@ -9,7 +9,7 @@ class Portfolio(models.Model):
 	# title
 	title = models.CharField(max_length=100)
 	# image
-	image = models.ImageField(upload_to="static/profile/")
+	image = models.ImageField()
 	# description
 	description = models.TextField()
 	# github link

@@ -13,22 +13,26 @@ from django.contrib import messages
 class PortfolioView(View):
 	def get(self, request, *args, **kwargs):
 		portfolio = Portfolio.objects.all()
+		links = []
 		prods = Contact.objects.all()
 		cv = get_object_or_404(CV, pk=1) # CV Download Bug
-		print(cv.id)
 		currenttime = int(datetime.now().strftime("%H"))
 		ip = IP()
 		client_ip = request.META['REMOTE_ADDR']
 		if client_ip not in str():
 			pass
-		area = (self.request.GET)
+		area = self.request.GET
 		area = "".join([v for k, v in area.items()])
+		print(type(area))
 		temp_cel = 0
 		location = None
 		day_type = None
 		icon = None
 		try:
-			weather_api = Scrap(f"{area}").api_call()
+			if area:
+				weather_api = Scrap(f"{area}").api_call()
+			else:
+				weather_api = Scrap(f"bangladesh").api_call()
 			# print(day_type)
 			if type(weather_api) != tuple:
 				messages.info(self.request, 'Area Not found')
