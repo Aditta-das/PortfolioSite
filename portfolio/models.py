@@ -51,3 +51,10 @@ class Contact(models.Model):
 
 	def __str__(self):
 		return self.name
+
+class CommentAdd(models.Model):
+	name = models.CharField(max_length=30)
+	post_text = models.TextField()
+
+	def __str__(self):
+		return self.name

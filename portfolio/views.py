@@ -47,19 +47,27 @@ class PortfolioView(View):
 				icon = f"/static/assets/weather/{icon}.png"
 		except KeyError:
 			pass
+		comments = CommentAdd.objects.all()
 		return render(request, template_name="index.html", 
-			context={"portfolio": portfolio, "currenttime": currenttime, "cv": cv, "temp_cel": temp_cel, "location": location, "day_type": day_type, "icon": icon})
+			context={"portfolio": portfolio, "currenttime": currenttime, "cv": cv, "temp_cel": temp_cel, "location": location, "day_type": day_type, "icon": icon, "comments": comments})
 
 	def post(self, request, *args, **kwargs):
-		if self.request.method == "POST":
+		if self.request.method == "POST" and 'btnform1' in self.request.POST:
 			name = self.request.POST["name"]
 			email = self.request.POST["email"]
 			phone = self.request.POST["phone"]
 			msg = self.request.POST["msg"]
 			prods = Contact(name=name, email=email, phone=phone, msg=msg)
+			print(prods)
 			prods.save()
 			return redirect("/")
-		# return render(request, template_name="index.html")
+
+		elif self.request.method == "POST" and "btnform2" in self.request.POST:
+			name = self.request.POST["name"]
+			post_text = self.request.POST["post_text"]
+			cmnts = CommentAdd(name=name, post_text=post_text)
+			cmnts.save()
+			return redirect("/")
 
 
 

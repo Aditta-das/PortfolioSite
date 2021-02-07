@@ -7,8 +7,7 @@ body, section, header, div, nav{
 	color: #ffffff !important;
 }
 
-.author{color: #d25b3a !important}
-
+#authorid{color: #ffffff !important}
 #mainNav, #upper-side, #upper-side-day{
 		background-color: rgb(36, 41, 46) !important;
 }
@@ -63,3 +62,6 @@ hr{
 	margin: 20px;
 	background-color: #eaeaea;
 }
+
+#authorname, #authorcomment{color: #fff !important;}
+#cmntbox{box-shadow: -1px 0px 5px -1px #000;}

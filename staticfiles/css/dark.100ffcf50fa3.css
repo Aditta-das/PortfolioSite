@@ -63,5 +63,4 @@ hr{
 	background-color: #eaeaea;
 }
 
-#authorname, #authorcomment{color: #fff !important;}
-#cmntbox{box-shadow: -1px 0px 5px -1px #000;}
+#authorname, #authorcomment, #cmntbox{color: #fff !important;}

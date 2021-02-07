@@ -11,3 +11,6 @@ function swapStyle(sheet){
     document.getElementById('mystylesheet').href = sheet
     localStorage.setItem('theme', sheet)
 }
+
+
+/*AJaxify*/

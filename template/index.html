@@ -33,7 +33,7 @@
                 
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-sun"></i></div>
+                    <div class="divider-custom-icon"><i class="fas fa-sun" style="color: #ffe404"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
@@ -202,7 +202,7 @@
             </div>
         </section>
         <!-- About Section-->
-        <section class="page-section bg-primary text-white mb-0" id="about" style="background-color: #e8d857;">
+        <section class="page-section bg-primary text-white mb-0" id="about" style="background-color: #fff;">
             <div class="container">
                 <!-- About Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-white" id="dark-font2">About Me</h2>
@@ -220,47 +220,79 @@
                                 <a class="btn btn-primary" href="{{ cv.file.url }}" target="_blank"><i class="fas fa-download"></i></br>DOWNLOAD MY CV</a>
                             </div>
 
-<div class="container">
-    <div class="bbox" style="margin: 70px;">
-    <div class="comments" id="comment">
-    <img src="{% static 'assets/img/woman.png' %}" class="commentImg">
-    </div>
-    <div class="mysliders">
-      <h4 id="slide">I love you the more in that I believe you had liked me for my own sake and for nothing else</h4>
-      <h7 class="author">- John Keats</h7>
-    </div>
+                            <section class="page-section bg-primary text-white mb-0" id="feedback" style="background-color: #fff;">
+                                <div class="container">
+                                <div class="bbox" style="margin: 70px;">
+                                <div class="comments" id="comment">
+                                <img src="{% static 'assets/img/manav.png' %}" class="commentImg">
+                                </div>
+                                {% for cmnt in comments %}
+                                <div class="mysliders">
+                                  <h4 id="slide">{{ cmnt.post_text }}</h4>
+                                  <h7 class="author" id="authorid">- {{ cmnt.name }}</h7>
+                                </div>
+                                {% endfor %}
+                                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                                <a class="next" onclick="plusSlides(1)">❯</a>
 
-    <div class="mysliders">
-      <h4 id="slide">But man is not made for defeat. A man can be destroyed but not defeated.</h4>
-      <h7 class="author">- Ernest Hemingway</h7>
-    </div>
+                                </div>
+                                <div class="CommentButton" id="CommentButton" style="display: flex; justify-content: center;">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#PleaseCommentButton">
+                                      Please Leave A Comment
+                                    </button>
 
-    <div class="mysliders">
-      <h4 id="slide">I have not failed. I've just found 10,000 ways that won't work.</h4>
-      <h7 class="author">- Thomas A. Edison</h7>
-    </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="PleaseCommentButton" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                      <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content" id="cmntbox">
+                                          <div class="modal-header">
+                                            <!-- <h5 class="modal-title" id="exampleModalLongTitle">Post A Comment</h5> -->
+                                            <div class="col text-center">
+                                                <img src="{% static 'assets/img/message.png' %}" style="width: 6rem;position: relative;top: 10px;">
+                                                <h5>Post A Comment</h5>
+                                            </div>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          </div>
+                                          <div class="modal-body">
+                                            
+                                        <form action="{% url 'index' %}" id="indexform" method="POST">
+                                            {% csrf_token %}
+                                          <div class="form-group">
+                                            <label for="exampleFormControlInput1" id="authorname">Your Name / Company</label>
+                                            <input type="text" class="form-control" id="exampleFormControlInput1" name="name" placeholder="Your Name / Company">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="exampleFormControlTextarea1" id="authorcomment">Comment Here...</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Comment Here" name="post_text"></textarea>
+                                          </div>
+                                        
 
-    <a class="prev" onclick="plusSlides(-1)">❮</a>
-    <a class="next" onclick="plusSlides(1)">❯</a>
+                                          </div>
+                                          <div class="modal-footer" style="position: relative;top: -25px;">
+                                            <button type="button" class="btn btn-danger btn-lg btn-block" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-lg btn-primary btn-block" name="btnform2">Post</button>
+                                          </div>
+                                          </form>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </section>
 
-    </div>
-</div>
-
-<!-- <div class="dot-container">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span> 
-  <span class="dot" onclick="currentSlide(3)"></span> 
-</div> -->
 
 
 
                         </div>
                         <div class="col d-flex justify-content-center">
                             <!-- Add font awesome icons -->
-                            <a class="btn btn-outline-light btn-social mx-1" href="https://www.facebook.com/nishaddna/" target="_blank"><i class="fab fa-fw fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/aditta_nishad/" target="_blank"><i class="fab fa-fw fa-instagram"></i></a>
-                            <a class="btn btn-outline-light btn-social mx-1" href="https://www.linkedin.com/in/adittadas-nishad-69662516b/" target="_blank"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                            <a class="btn btn-outline-light btn-social mx-1" href="#!" target="_blank"><i class="fab fa-fw fa-google"></i></a>
+                            <a class="btn btn-outline-primary btn-social mx-1" href="https://www.facebook.com/nishaddna/" target="_blank"><i class="fab fa-fw fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-primary btn-social mx-1" href="https://www.instagram.com/aditta_nishad/" target="_blank"><i class="fab fa-fw fa-instagram"></i></a>
+                            <a class="btn btn-outline-primary btn-social mx-1" href="https://www.linkedin.com/in/adittadas-nishad-69662516b/" target="_blank"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-primary btn-social mx-1" href="#!" target="_blank"><i class="fab fa-fw fa-google"></i></a>
                         </div>
                     </div>
                     <!-- <div class="col-lg-4 mr-auto"><p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p></div> -->
@@ -275,7 +307,7 @@
         <section class="page-section" id="contact">
             <div class="container">
                 <!-- Contact Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" id="dark-font3">Contact Me</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" id="dark-font3">Have you any exciting project?</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
@@ -302,7 +334,7 @@
                               <div class="form-outline mb-4">
                                 <fieldset> <textarea placeholder="Type your message here..." class="form-control" name="msg" tabindex="5" required></textarea> </fieldset>
                               </div>
-                              <fieldset> <button class="btn btn-md btn-danger btn-block" type="submit">Send Now</button> </fieldset>
+                              <fieldset> <button class="btn btn-md btn-danger btn-block" name="btnform1" type="submit">Send Now</button> </fieldset>
                             </form>
                           </div>
                         </div>
