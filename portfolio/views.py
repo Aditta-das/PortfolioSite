@@ -9,13 +9,16 @@ from datetime import datetime
 from weather import Scrap
 from django.contrib import messages
 # Fix the Bug CV Download
+from .models import *
+from django.shortcuts import render
+
 
 class PortfolioView(View):
 	def get(self, request, *args, **kwargs):
 		portfolio = Portfolio.objects.all()
 		links = []
 		prods = Contact.objects.all()
-		cv = get_object_or_404(CV, pk=1) # CV Download Bug
+		cv = get_object_or_404(CV, pk=2) # CV Download Bug
 		currenttime = int(datetime.now().strftime("%H"))
 		ip = IP()
 		client_ip = request.META['REMOTE_ADDR']
@@ -49,7 +52,10 @@ class PortfolioView(View):
 			pass
 		comments = CommentAdd.objects.all()
 		return render(request, template_name="index.html", 
-			context={"portfolio": portfolio, "currenttime": currenttime, "cv": cv, "temp_cel": temp_cel, "location": location, "day_type": day_type, "icon": icon, "comments": comments})
+			context={"portfolio": portfolio, "currenttime": currenttime, "cv": cv, 
+			"temp_cel": temp_cel, "location": location, 
+			"day_type": day_type, "icon": icon, 
+			"comments": comments})
 
 	def post(self, request, *args, **kwargs):
 		if self.request.method == "POST" and 'btnform1' in self.request.POST:
@@ -69,5 +75,5 @@ class PortfolioView(View):
 			cmnts.save()
 			return redirect("/")
 
-
-
+def handler404(request, *args, **argv):
+	return render(request, template_name="404.html")
